@@ -46,20 +46,20 @@ extension UIImage {
                     let roundedRectanglePath = UIBezierPath(roundedRect: roundedRectangleRect, cornerRadius: keyCornerRadius)
                     context.saveGState()
                     roundedRectanglePath.addClip()
-                    context.drawLinearGradient(gradient,
-                                               start: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.minY),
-                                               end: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.maxY),
-                                               options: [])
+//                    context.drawLinearGradient(gradient,
+//                                               start: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.minY),
+//                                               end: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.maxY),
+//                                               options: [])
                     context.restoreGState()
 
                     let roundedRectangle2Rect = CGRect(x: frame.minX + border, y: frame.minY + bottomRectOffset, width: width, height: bottomRectHeight)
                     let roundedRectangle2Path = UIBezierPath(roundedRect: roundedRectangle2Rect, cornerRadius: keyCornerRadius)
                     context.saveGState()
                     roundedRectangle2Path.addClip()
-                    context.drawLinearGradient(gradient,
-                                               start: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.maxY),
-                                               end: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.minY),
-                                               options: [])
+//                    context.drawLinearGradient(gradient,
+//                                               start: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.maxY),
+//                                               end: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.minY),
+//                                               options: [])
                 }
             } else {
                 // White key
@@ -74,20 +74,20 @@ extension UIImage {
                     context.fill(frame)
                 }
 
-                let gradientColors = [strokeColor1.cgColor, strokeColor2.cgColor]
-                let gradientLocations: [CGFloat] = [0.1, 1.0]
-
-                if let gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors as CFArray, locations: gradientLocations) {
-                    let rectanglePath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-                    context.saveGState()
-                    rectanglePath.addClip()
-                    context.drawRadialGradient(gradient,
-                                               startCenter: CGPoint(x: size.width / 2.0, y: size.height / 2.0),
-                                               startRadius: size.height * 0.01,
-                                               endCenter: CGPoint(x: size.width / 2.0, y: size.height / 2.0),
-                                               endRadius: size.height * 0.6,
-                                               options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
-                }
+//                let gradientColors = [strokeColor1.cgColor, strokeColor2.cgColor]
+//                let gradientLocations: [CGFloat] = [0.1, 1.0]
+//
+//                if let gradient = CGGradient(colorsSpace: colorSpace, colors: gradientColors as CFArray, locations: gradientLocations) {
+//                    let rectanglePath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+//                    context.saveGState()
+//                    rectanglePath.addClip()
+//                    context.drawRadialGradient(gradient,
+//                                               startCenter: CGPoint(x: size.width / 2.0, y: size.height / 2.0),
+//                                               startRadius: size.height * 0.01,
+//                                               endCenter: CGPoint(x: size.width / 2.0, y: size.height / 2.0),
+//                                               endRadius: size.height * 0.6,
+//                                               options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
+//                }
             }
             context.restoreGState()
         }
