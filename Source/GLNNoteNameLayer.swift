@@ -19,13 +19,12 @@ public final class GLNNoteNameLayer: CATextLayer {
         let width = keyRect.size.width / 2.0
         let height = width
         self.string = label != nil ? label : GLNNote.name(for: noteNumber)
-        self.foregroundColor = UIColor.white.cgColor
-        self.backgroundColor = UIColor.noteColourFor(midiNumber: noteNumber, alpha: 0.75).cgColor
+        self.foregroundColor = UIColor.black.cgColor
         self.font = UIFont.boldSystemFont(ofSize: 0.0)
         self.fontSize = (keyRect.size.width / 4.0)
         self.alignmentMode = .center
-        self.cornerRadius = (height * 0.5)
-        self.frame = CGRect(x: (keyRect.size.width * 0.25), y: (layerHeight - height - 10), width: width, height: height)
+        self.frame = CGRect(x: (keyRect.size.width * 0.25), y: (layerHeight - height - 0), width: width, height: height)
+        self.contentsScale = UIScreen.main.scale
     }
 
     required init?(coder aDecoder: NSCoder) {
