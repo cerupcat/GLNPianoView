@@ -22,10 +22,10 @@ import UIKit
     private static let minNumberOfKeys = 12
     private static let maxNumberOfKeys = 61
     private var _octave = 60
-    private var _numberOfKeys = 24
+    private var _numberOfKeys = 12
     private var whiteKeyCount = 0
     private var _blackKeyHeight: CGFloat = 0.60
-    private var _blackKeyWidth: CGFloat = 0.80
+    private var _blackKeyWidth: CGFloat = 0.85
     private var keyCornerRadius: CGFloat = 0
     private var labels: [String?] = Array.init(repeating: nil, count: 128)
     
@@ -60,7 +60,7 @@ import UIKit
         }
     }
 
-    public var octave: Int {
+    @objc public var octave: Int {
         get {
             return _octave
         }
@@ -199,6 +199,7 @@ import UIKit
 
     // MARK: - Highlighting
 
+    @objc
     public func highlightKeys(noteNames: [String], color: UIColor, play: Bool = false) {
         reset(didPlay: play)
         for note in noteNames {
@@ -207,6 +208,7 @@ import UIKit
         }
     }
 
+    @objc
     public func highlightKeys(noteNumbers: [Int], color: UIColor, play: Bool = false) {
         reset(didPlay: play)
         for noteNumber in noteNumbers {
@@ -214,12 +216,14 @@ import UIKit
         }
     }
 
+    @objc
     public func highlightKey(noteName: String, color: UIColor, play: Bool = false) {
         reset(didPlay: play)
         let noteNumber = GLNNote.midiNumber(for: noteName)
         highlight(noteNumber: noteNumber, color: color, play: play)
     }
 
+    @objc
     public func highlightKey(noteNumber: Int, color: UIColor, play: Bool = false, resets: Bool = true) {
         reset(didPlay: play)
         highlight(noteNumber: noteNumber, color: color, play: play, resets: resets)
@@ -237,6 +241,7 @@ import UIKit
         }
     }
 
+    @objc
     public func reset(didPlay: Bool) {
         for key in keysArray {
             if let key = key  {
@@ -252,6 +257,7 @@ import UIKit
 
     // MARK: - Labels
 
+    @objc
     public func setLabel(for midiNumber: Int, text: String) {
         guard midiNumber < labels.count else {
             return
@@ -260,28 +266,32 @@ import UIKit
     }
 
     // MARK: - Touches
-    
+
+    @objc
     public override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
         for touch in touches {
             currentTouches.add(touch)
         }
         updateKeys()
     }
-    
+
+    @objc
     public override func touchesMoved(_ touches: Set<UITouch>, with _: UIEvent?) {
         for touch in touches {
             currentTouches.add(touch)
         }
         updateKeys()
     }
-    
+
+    @objc
     public override func touchesEnded(_ touches: Set<UITouch>, with _: UIEvent?) {
         for touch in touches {
             currentTouches.remove(touch)
         }
         updateKeys()
     }
-    
+
+    @objc
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             currentTouches.remove(touch)
