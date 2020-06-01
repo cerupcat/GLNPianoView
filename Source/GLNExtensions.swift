@@ -32,30 +32,30 @@ extension UIImage {
                     strokeColor1.setFill()
                     rectanglePath.fill()
 
-                    let border = size.width * 0.15
-                    let width = size.width * 0.7
-                    var topRectHeight = size.height * 0.86
-                    var bottomRectOffset = size.height * 0.875
-                    let bottomRectHeight = size.height * 0.125
-                    if keyDown {
-                        topRectHeight = size.height * 0.91
-                        bottomRectOffset = size.height * 0.925
-                    }
-
-                    let roundedRectangleRect = CGRect(x: frame.minX + border, y: frame.minY, width: width, height: topRectHeight)
-                    let roundedRectanglePath = UIBezierPath(roundedRect: roundedRectangleRect, cornerRadius: keyCornerRadius)
-                    context.saveGState()
-                    roundedRectanglePath.addClip()
+//                    let border = size.width * 0.15
+//                    let width = size.width * 0.7
+//                    var topRectHeight = size.height * 0.86
+//                    var bottomRectOffset = size.height * 0.875
+//                    let bottomRectHeight = size.height * 0.125
+//                    if keyDown {
+//                        topRectHeight = size.height * 0.91
+//                        bottomRectOffset = size.height * 0.925
+//                    }
+//
+//                    let roundedRectangleRect = CGRect(x: frame.minX + border, y: frame.minY, width: width, height: topRectHeight)
+//                    let roundedRectanglePath = UIBezierPath(roundedRect: roundedRectangleRect, cornerRadius: keyCornerRadius)
+//                    context.saveGState()
+//                    roundedRectanglePath.addClip()
 //                    context.drawLinearGradient(gradient,
 //                                               start: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.minY),
 //                                               end: CGPoint(x: roundedRectangleRect.midX, y: roundedRectangleRect.maxY),
 //                                               options: [])
-                    context.restoreGState()
+//                    context.restoreGState()
 
-                    let roundedRectangle2Rect = CGRect(x: frame.minX + border, y: frame.minY + bottomRectOffset, width: width, height: bottomRectHeight)
-                    let roundedRectangle2Path = UIBezierPath(roundedRect: roundedRectangle2Rect, cornerRadius: keyCornerRadius)
-                    context.saveGState()
-                    roundedRectangle2Path.addClip()
+//                    let roundedRectangle2Rect = CGRect(x: frame.minX + border, y: frame.minY + bottomRectOffset, width: width, height: bottomRectHeight)
+//                    let roundedRectangle2Path = UIBezierPath(roundedRect: roundedRectangle2Rect, cornerRadius: keyCornerRadius)
+//                    context.saveGState()
+//                    roundedRectangle2Path.addClip()
 //                    context.drawLinearGradient(gradient,
 //                                               start: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.maxY),
 //                                               end: CGPoint(x: roundedRectangle2Rect.midX, y: roundedRectangle2Rect.minY),
@@ -88,8 +88,9 @@ extension UIImage {
 //                                               endRadius: size.height * 0.6,
 //                                               options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
 //                }
+
+//                context.restoreGState()
             }
-            context.restoreGState()
         }
 
         let image = UIGraphicsGetImageFromCurrentImageContext()
